@@ -1,0 +1,329 @@
+AI&DS 202@Desktop MINGW64 ~/Desktop (master)
+$ mkdir git-dvcs
+
+AI&DS 202@Desktop MINGW64 ~/Desktop (master)
+$ cd git-dvcs/
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs (master)
+$ got config -global
+bash: got: command not found
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs (master)
+$ git config -global
+error: did you mean `--global` (with two dashes)?
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs (master)
+$ git config --global user.name "Tanishq"
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs (master)
+$ git config --global user.email "tanishq.upasani@gmail.com"
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs (master)
+$ git config --global --list
+user.name=Tanishq
+user.email=tanishq.upasani@gmail.com
+color.ui=true
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs (master)
+$ mkdir git-demo-project
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs (master)
+$ cd git-demo-project/
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (master)
+$ git init
+Initialized empty Git repository in C:/Users/15L/Desktop/git-dvcs/git-demo-project/.git/
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (master)
+$ ls -a
+./  ../  .git/
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (master)
+$ rm -rf .git/
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (master)
+$ git init
+Initialized empty Git repository in C:/Users/15L/Desktop/git-dvcs/git-demo-project/.git/
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (master)
+$ git add .
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   first.txt
+        new file:   new.html
+        new file:   script.js
+        new file:   style.css
+
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (master)
+$ git commit -m "First commit"
+[master (root-commit) c6857cf] First commit
+ 4 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 first.txt
+ create mode 100644 new.html
+ create mode 100644 script.js
+ create mode 100644 style.css
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (master)
+$ git commit -m "First commit"
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        index.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (master)
+$ git add .
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (master)
+$ git commit -am "express commit"
+[master f8a1a55] express commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 index.txt
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (master)
+$ nano index.txt
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (master)
+$ touch teststatus
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        teststatus
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (master)
+$ git checkout --teststatus
+error: unknown option `teststatus'
+usage: git checkout [<options>] <branch>
+   or: git checkout [<options>] [<branch>] -- <file>...
+
+    -b <branch>           create and checkout a new branch
+    -B <branch>           create/reset and checkout a branch
+    -l                    create reflog for new branch
+    --guess               second guess 'git checkout <no-such-branch>' (default)
+    --overlay             use overlay mode (default)
+    -q, --quiet           suppress progress reporting
+    --recurse-submodules[=<checkout>]
+                          control recursive updating of submodules
+    --progress            force progress reporting
+    -m, --merge           perform a 3-way merge with the new branch
+    --conflict <style>    conflict style (merge, diff3, or zdiff3)
+    -d, --detach          detach HEAD at named commit
+    -t, --track[=(direct|inherit)]
+                          set branch tracking configuration
+    -f, --force           force checkout (throw away local modifications)
+    --orphan <new-branch>
+                          new unparented branch
+    --overwrite-ignore    update ignored files (default)
+    --ignore-other-worktrees
+                          do not check if another worktree is holding the given ref
+    -2, --ours            checkout our version for unmerged files
+    -3, --theirs          checkout their version for unmerged files
+    -p, --patch           select hunks interactively
+    --ignore-skip-worktree-bits
+                          do not limit pathspecs to sparse entries only
+    --pathspec-from-file <file>
+                          read pathspec from file
+    --pathspec-file-nul   with --pathspec-from-file, pathspec elements are separated with NUL character
+
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (master)
+$ git checkout -- teststatus
+error: pathspec 'teststatus' did not match any file(s) known to git
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (master)
+$ git checkout -- index.txt
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (master)
+$ git add index.txt
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        teststatus
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (master)
+$ git add teststatus
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   teststatus
+
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (master)
+$ nano index.txt
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (master)
+$ git add index.txt
+warning: in the working copy of 'index.txt', LF will be replaced by CRLF the next time Git touches it
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   index.txt
+        new file:   teststatus
+
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (master)
+$ git log
+commit f8a1a5544ac502fc2768a53671f2683478160c52 (HEAD -> master)
+Author:Tanishq <tanishq.upasani@gmail.com>
+Date:   Wed Jan 17 09:23:13 2024 +0530
+
+    express commit
+
+commit c6857cfc9ce71a5c0bf74f1cff87f7cce42e458e
+Author: Tanishq <tanishq.upasani@gmail.com>
+Date:   Wed Jan 17 09:24:05 2024 +0530
+
+    First commit
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (master)
+$ git log --online
+fatal: unrecognized argument: --online
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (master)
+$ git log --oneline
+f8a1a55 (HEAD -> master) express commit
+c6857cf First commit
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (master)
+$ git log --oneline teststatus
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (master)
+$ git log --oneline
+f8a1a55 (HEAD -> master) express commit
+c6857cf First commit
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (master)
+$ git branch -M main
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (main)
+$ git remote add origin https://github.com/TanishqUpasani/SEPM-PRAC.git
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (main)
+$ git push -u origin main
+remote: Permission to TanishqUpasani/SEPM-PRAC.git denied to Someone215.
+fatal: unable to access 'https://github.com/TanishqUpasani/SEPM-PRAC.git/': The requested URL returned error: 403
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (main)
+$ git push -u origin main
+info: please complete authentication in your browser...
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 20 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (5/5), 429 bytes | 429.00 KiB/s, done.
+Total 5 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/TanishqUpasani/SEPM-PRAC.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (main)
+$ git push -u origin main
+Everything up-to-date
+branch 'main' set up to track 'origin/main'.
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (main)
+$ git pull
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 959 bytes | 319.00 KiB/s, done.
+From https://github.com/TanishqUpasani/SEPM-PRAC
+   1a4b47d..16a299e  main       -> origin/main
+Updating 1a4b47d..16a299e
+Fast-forward
+ index.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (main)
+$ git log --oneline origin/main
+16a299e (HEAD -> main, origin/main) Update index.txt
+1a4b47d commit
+3f1ab05 commit
+f8a1a55 express commit
+c6857cf First commit
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (main)
+$ git fetch
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (main)
+$  git bracnch
+git: 'bracnch' is not a git command. See 'git --help'.
+
+The most similar command is
+        branch
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (main)
+$ git branch
+* main
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (main)
+$ git branch Tanishq
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (main)
+$ git checkout Tanishq
+Switched to branch 'Tanishq'
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (Tanishq)
+$ touch tanishq.html
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (Tanishq)
+$ git merge Tanishq
+Already up to date.
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (Tanishq)
+$ git merge main
+Already up to date.
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (Tanishq)
+$ git checkout -b Tanishq
+fatal: a branch named 'Tanishq' already exists
+
+AI&DS 202@Desktop MINGW64 ~/Desktop/git-dvcs/git-demo-project (Tanishq)
+$ git branch Tanishq
+fatal: a branch named 'Tanishq' already exists
